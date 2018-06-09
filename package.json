@@ -1,0 +1,27 @@
+{
+  "name": "react-gallery-app",
+  "version": "0.1.0",
+  "description": "An app demonstrating a dynamic responsive image gallery",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "8.5.0",
+    "npm": "5.3.0"
+  },
+  "author": "Gregory Denys",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5",
+    "pexels-api-wrapper": "^1.0.9"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
+}
