@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 
@@ -11,21 +12,18 @@ app.use(bodyParser.json());
 
 require('./routes/photoRoutes')(app);
 
-app.get('/', (req, res) => {
-  //   res.send({ hi: 'there' });
-  const path = require('path');
-  res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
-});
+// app.get('/', (req, res) => {
+// const path = require('path');
+// res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
+// });
 
 // ============================ PRODUCTION BUILD  =============================
 
 if (process.env.NODE_ENV === 'production') {
-  express.use(express.static('client/build'));
-
-  const path = require('path');
+  app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'src', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'public', 'index.html'));
   });
 }
 
