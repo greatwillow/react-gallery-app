@@ -7,7 +7,7 @@ module.exports = app => {
   app.get('/api/photos', async (req, res) => {
     const pexelsClient = await new PexelsAPI(keys.pexelsKey);
     pexelsClient
-      .search(req.query['search-term'], 10, 1)
+      .search(req.query['search-term'], 100, 1)
       .then(function(photoData) {
         res.send(photoData);
       })

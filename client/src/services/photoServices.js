@@ -1,5 +1,4 @@
 const getPhotos = (scope, searchTerm) => {
-  console.log('SERVICE S TERM ', searchTerm);
   fetch(`/api/photos?search-term=${searchTerm}`, {
     headers: {
       Accept: 'application/json',

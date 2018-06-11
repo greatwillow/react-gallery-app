@@ -1,0 +1,10 @@
+.header-title {
+  color: #fff;
+  font-family: 'Monoton', sans-serif;
+  font-size: 25px;
+  color: rgb(17, 230, 148);
+}
+
+.header-title > span {
+  color: rgb(230, 17, 140);
+}

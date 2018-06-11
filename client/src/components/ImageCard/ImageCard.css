@@ -1,0 +1,29 @@
+.image-card {
+  width: 100%;
+  height: auto;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.image-card:hover {
+  -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.19), 0 12px 12px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.19), 0 12px 12px rgba(0, 0, 0, 0.23);
+  -webkit-filter: brightness(0.8);
+  filter: brightness(0.8);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.image-card > img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  margin: 0px 0px -5px 0px;
+}

@@ -12,11 +12,6 @@ app.use(bodyParser.json());
 
 require('./routes/photoRoutes')(app);
 
-// app.get('/', (req, res) => {
-// const path = require('path');
-// res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
-// });
-
 // ============================ PRODUCTION BUILD  =============================
 
 if (process.env.NODE_ENV === 'production') {
