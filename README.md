@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a simple app show-casing a searchable Gallery of photos as found through a free stock photo provider called Pexels. See [here](https://www.pexels.com/) to go to their website or [here](https://www.pexels.com/api/) to browse their API documentation.
+This is a simple app show-casing a searchable Gallery of photos as found through a free stock photo provider called Pexels. See [here](https://www.pexels.com/) to go to their website or [here](https://github.com/cravindra/pexels-api-wrapper) to browse their API documentation.
 
 The app is constructed using a simple Express.JS server on the backend with a React.JS front-end using [Create React App](https://github.com/facebook/create-react-app) as a boilerplate starter kit.
 

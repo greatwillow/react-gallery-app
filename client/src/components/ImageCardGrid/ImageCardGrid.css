@@ -29,7 +29,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   .image-grid-column {
     -webkit-box-flex: 100%;
     -ms-flex: 100%;

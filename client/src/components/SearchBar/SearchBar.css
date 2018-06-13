@@ -27,10 +27,15 @@
   width: 50px;
   align-items: center;
   justify-content: center;
+  outline: none;
   border: 0px;
   font-size: 20px;
   color: #fff;
   background-color: rgb(17, 230, 148);
+}
+
+.search-bar > form > button:active {
+  color: rgb(80, 80, 80);
 }
 
 @media (max-width: 440px) {

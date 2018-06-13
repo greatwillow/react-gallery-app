@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+// FUNCTIONS
 import { getPhotos } from './services/photoServices';
 import { checkDimensionsHOC } from './utils/checkDimensionsHOC';
+// COMPONENTS
 import Header from './components/Header/Header';
 import ImageGallery from './components/ImageGallery/ImageGallery';
+import Modal from './components/Modal/Modal';
+// STYLES
 import './App.css';
 
 class App extends Component {
@@ -10,7 +14,12 @@ class App extends Component {
     super();
     this.state = {
       photos: [],
-      searchTerm: ''
+      searchTerm: '',
+      currentPhoto: {
+        src: {
+          medium: null
+        }
+      }
     };
   }
 
@@ -28,6 +37,18 @@ class App extends Component {
     });
   };
 
+  handleShowModal = () => {
+    this.setState({
+      modalOpen: !this.state.modalOpen
+    });
+  };
+
+  handleProvidePhoto = photo => {
+    this.setState({
+      currentPhoto: photo
+    });
+  };
+
   render() {
     return (
       <div className="app-container">
@@ -37,7 +58,15 @@ class App extends Component {
           handleSearchTermChange={this.handleSearchTermChange}
           {...this.props}
         />
-        <ImageGallery photos={this.state.photos} />
+        <ImageGallery
+          photos={this.state.photos}
+          handleShowModal={this.handleShowModal}
+          handleProvidePhoto={this.handleProvidePhoto}
+          {...this.props}
+        />
+        {this.state.modalOpen && (
+          <Modal handleShowModal={this.handleShowModal} photo={this.state.currentPhoto} />
+        )}
       </div>
     );
   }

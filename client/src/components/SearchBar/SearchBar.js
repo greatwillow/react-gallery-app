@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+// STYLES
 import 'font-awesome/css/font-awesome.css';
 import './SearchBar.css';
 
@@ -21,5 +23,11 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  handleSearchTermChange: PropTypes.func.isRequired,
+  handleSubmitSearchTerm: PropTypes.func.isRequired
+};
 
 export default SearchBar;

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const path = require('path');
 
 const app = express();
@@ -7,6 +8,7 @@ const app = express();
 // ============================ EXPRESS MIDDLEWARE =============================
 
 app.use(bodyParser.json());
+app.use(compression());
 
 // ============================ ROUTING =============================
 

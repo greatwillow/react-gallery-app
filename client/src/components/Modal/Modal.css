@@ -1,0 +1,56 @@
+.screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 6;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+}
+
+.modal > img {
+  width: 80%;
+  height: auto;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #000;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .modal {
+    width: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  .modal {
+    width: 100%;
+  }
+}

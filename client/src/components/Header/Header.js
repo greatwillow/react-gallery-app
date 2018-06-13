@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// COMPONENTS
 import SearchBar from '../SearchBar/SearchBar';
 import HeaderTitle from '../HeaderTitle/HeaderTitle';
 

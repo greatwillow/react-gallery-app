@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+// STYLES
 import './HeaderTitle.css';
 
 class HeaderTitle extends Component {
@@ -20,5 +22,9 @@ class HeaderTitle extends Component {
     }
   }
 }
+
+HeaderTitle.propTypes = {
+  windowWidth: PropTypes.number.isRequired
+};
 
 export default HeaderTitle;
