@@ -5,8 +5,16 @@ import './Modal.css';
 import 'font-awesome/css/font-awesome.css';
 
 class Modal extends Component {
+  constructor() {
+    super();
+    this.state = {
+      photoSpecifiedWidth: '80%'
+    };
+  }
+
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
+    this.getModalPhotoWidth();
   }
 
   componentWillUnmount() {
@@ -19,8 +27,19 @@ class Modal extends Component {
     }
   };
 
+  getModalPhotoWidth = () => {
+    if (this.props.photo.height < this.props.photo.width) {
+      this.setState({
+        photoSpecifiedWidth: '80%'
+      });
+    } else {
+      this.setState({
+        photoSpecifiedWidth: '50%'
+      });
+    }
+  };
+
   render() {
-    console.log('MODAL PHOTO ', this.props.photo);
     return (
       <div className="screen-overlay">
         <div
@@ -32,10 +51,18 @@ class Modal extends Component {
           <button className="modal-close-button" onClick={this.props.handleShowModal}>
             <i className="fa fa-close" />
           </button>
-          <img src={this.props.photo.src.large} alt={this.props.photo.url} />
-
-          <h3>Photo taken by: </h3>
-          <p>{this.props.photo.photographer}</p>
+          <img
+            src={this.props.photo.src.medium}
+            alt={this.props.photo.url}
+            width={this.state.photoSpecifiedWidth}
+          />
+          <p>
+            This photograph has been taken from{' '}
+            <a href="http://www.pexels.com">www.pexels.com</a>.<br />
+            The stated photographer is: &nbsp;{this.props.photo.photographer}
+            <br />
+            Find out more by clicking <a href={this.props.photo.url}>here.</a>
+          </p>
         </div>
       </div>
     );
