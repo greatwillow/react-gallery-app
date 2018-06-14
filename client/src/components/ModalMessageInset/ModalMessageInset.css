@@ -1,0 +1,11 @@
+.modal-message-inset {
+  height: 250px;
+  font-family: 'Architects Daughter', sans-serif;
+  padding: 30px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.modal-message-inset > h3 {
+  color: rgb(230, 17, 140);
+}

@@ -34,23 +34,6 @@
   background-color: #fff;
 }
 
-.modal > img {
-  height: auto;
-  margin: 40px 0px 40px 0px;
-}
-
-.modal > p {
-  font-family: 'Architects Daughter', sans-serif;
-  padding-bottom: 20px;
-  line-height: 30px;
-  text-align: center;
-}
-
-.modal > p > a {
-  text-decoration: none;
-  color: rgb(230, 17, 140);
-}
-
 .modal-close-button {
   position: absolute;
   top: 15px;

@@ -14,11 +14,15 @@ class App extends Component {
     super();
     this.state = {
       photos: [],
-      searchTerm: '',
       currentPhoto: {
         src: {
           medium: null
         }
+      },
+      searchTerm: '',
+      errorMessage: {
+        errorFound: false,
+        message: ''
       }
     };
   }
@@ -38,6 +42,14 @@ class App extends Component {
   };
 
   handleShowModal = () => {
+    if (this.state.errorMessage.errorFound === true && this.state.modalOpen) {
+      this.setState({
+        errorMessage: {
+          errorFound: false,
+          message: ''
+        }
+      });
+    }
     this.setState({
       modalOpen: !this.state.modalOpen
     });
@@ -65,7 +77,11 @@ class App extends Component {
           {...this.props}
         />
         {this.state.modalOpen && (
-          <Modal handleShowModal={this.handleShowModal} photo={this.state.currentPhoto} />
+          <Modal
+            handleShowModal={this.handleShowModal}
+            photo={this.state.currentPhoto}
+            errorMessage={this.state.errorMessage}
+          />
         )}
       </div>
     );

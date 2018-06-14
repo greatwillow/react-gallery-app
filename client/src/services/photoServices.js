@@ -13,9 +13,24 @@ const getPhotos = (scope, searchTerm) => {
       scope.setState({
         photos: data.photos
       });
+      if (data.total_results === 0) {
+        scope.setState({
+          errorMessage: {
+            errorFound: true,
+            message: 'Unfortunately there were no photos found for the given term.'
+          },
+          modalOpen: true
+        });
+      }
     })
     .catch(err => {
-      console.log('ERROR GETTING PHOTOS WITH ERROR ', err);
+      scope.setState({
+        errorMessage: {
+          errorFound: true,
+          message: `It looks like the error is that: ${err.message}`
+        },
+        modalOpen: true
+      });
     });
 };
 

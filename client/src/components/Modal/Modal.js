@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// COMPONENTS
+import ModalPhotoInset from '../ModalPhotoInset/ModalPhotoInset';
+import ModalMessageInset from '../ModalMessageInset/ModalMessageInset';
 // STYLES
 import './Modal.css';
 import 'font-awesome/css/font-awesome.css';
@@ -40,6 +43,7 @@ class Modal extends Component {
   };
 
   render() {
+    let { photo, handleShowModal, errorMessage } = this.props;
     return (
       <div className="screen-overlay">
         <div
@@ -48,21 +52,16 @@ class Modal extends Component {
           }}
           className="modal"
         >
-          <button className="modal-close-button" onClick={this.props.handleShowModal}>
+          <button className="modal-close-button" onClick={handleShowModal}>
             <i className="fa fa-close" />
           </button>
-          <img
-            src={this.props.photo.src.medium}
-            alt={this.props.photo.url}
-            width={this.state.photoSpecifiedWidth}
-          />
-          <p>
-            This photograph has been taken from{' '}
-            <a href="http://www.pexels.com">www.pexels.com</a>.<br />
-            The stated photographer is: &nbsp;{this.props.photo.photographer}
-            <br />
-            Find out more by clicking <a href={this.props.photo.url}>here.</a>
-          </p>
+          {!errorMessage.errorFound && (
+            <ModalPhotoInset
+              photo={photo}
+              photoSpecifiedWidth={this.state.photoSpecifiedWidth}
+            />
+          )}
+          {errorMessage.errorFound && <ModalMessageInset errorMessage={errorMessage} />}
         </div>
       </div>
     );
@@ -71,7 +70,8 @@ class Modal extends Component {
 
 Modal.propTypes = {
   handleShowModal: PropTypes.func.isRequired,
-  photo: PropTypes.object.isRequired
+  photo: PropTypes.object.isRequired,
+  errorMessage: PropTypes.object.isRequired
 };
 
 export default Modal;

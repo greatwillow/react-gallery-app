@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// FUNCTIONS
+import { getImageDimensions } from '../../utils/responsiveGrid/getImageDimensions';
 // STYLES
 import './ImageCard.css';
 
@@ -14,15 +16,15 @@ class ImageCard extends Component {
   }
 
   componentWillMount = () => {
-    window.addEventListener('resize', this.getImageDimensions);
+    window.addEventListener('resize', getImageDimensions(this));
   };
 
   componentWillUnmount = () => {
-    window.removeEventListener('resize', this.getImageDimensions);
+    window.removeEventListener('resize', getImageDimensions(this));
   };
 
   componentDidMount = () => {
-    this.getImageDimensions();
+    getImageDimensions(this);
   };
 
   handleImageLoaded() {
@@ -34,35 +36,21 @@ class ImageCard extends Component {
   }
 
   handleSetUpModal = photo => {
-    this.props.handleShowModal();
-    this.props.handleProvidePhoto(photo);
-  };
-
-  setImageHeight = imageActualHeight => {
-    this.setState({
-      imageHeight: imageActualHeight
-    });
-  };
-
-  getImageDimensions = () => {
-    const imageExpandedWidth = this.props.photo.width;
-    const imageExpandedHeight = this.props.photo.height;
-
-    const imageActualWidth = this.imageContainerRef.offsetWidth;
-    const imageActualHeight =
-      (imageExpandedHeight / imageExpandedWidth) * imageActualWidth;
-
-    this.setImageHeight(imageActualHeight);
+    if (this.state.imageLoaded) {
+      this.props.handleShowModal();
+      this.props.handleProvidePhoto(photo);
+    }
   };
 
   render() {
+    let { photo } = this.props;
     return (
       <div
         ref={elem => {
           this.imageContainerRef = elem;
         }}
         className="image-card"
-        onClick={() => this.handleSetUpModal(this.props.photo)}
+        onClick={() => this.handleSetUpModal(photo)}
         style={{
           width: '100%',
           height: this.state.imageHeight
@@ -87,7 +75,7 @@ class ImageCard extends Component {
         )}
 
         <img
-          src={this.props.photo.src.medium}
+          src={photo.src.medium}
           onLoad={() => this.handleImageLoaded()}
           onError={this.handleImageErrored}
         />
