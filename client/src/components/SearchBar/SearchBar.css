@@ -3,15 +3,26 @@
 }
 
 .search-bar > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   border: 3px solid rgb(17, 230, 148);
   border-right: 0px;
 }
 
 .search-bar > form > input {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   height: 25px;
   width: 25px;
@@ -22,10 +33,16 @@
 }
 
 .search-bar > form > button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 25px;
   width: 50px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   outline: none;
   border: 0px;
