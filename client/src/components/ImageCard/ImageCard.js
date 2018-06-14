@@ -8,7 +8,8 @@ class ImageCard extends Component {
     super();
     this.state = {
       imageHeight: 0,
-      modalOpen: false
+      imageLoaded: false,
+      imageError: false
     };
   }
 
@@ -24,6 +25,25 @@ class ImageCard extends Component {
     this.getImageDimensions();
   };
 
+  handleImageLoaded() {
+    this.setState({ imageLoaded: true });
+  }
+
+  handleImageErrored() {
+    this.setState({ imageError: true });
+  }
+
+  handleSetUpModal = photo => {
+    this.props.handleShowModal();
+    this.props.handleProvidePhoto(photo);
+  };
+
+  setImageHeight = imageActualHeight => {
+    this.setState({
+      imageHeight: imageActualHeight
+    });
+  };
+
   getImageDimensions = () => {
     const imageExpandedWidth = this.props.photo.width;
     const imageExpandedHeight = this.props.photo.height;
@@ -32,14 +52,7 @@ class ImageCard extends Component {
     const imageActualHeight =
       (imageExpandedHeight / imageExpandedWidth) * imageActualWidth;
 
-    this.setState({
-      imageHeight: imageActualHeight
-    });
-  };
-
-  handleSetUpModal = photo => {
-    this.props.handleShowModal();
-    this.props.handleProvidePhoto(photo);
+    this.setImageHeight(imageActualHeight);
   };
 
   render() {
@@ -55,7 +68,29 @@ class ImageCard extends Component {
           height: this.state.imageHeight
         }}
       >
-        <img src={this.props.photo.src.medium} />
+        {!this.state.imageLoaded && (
+          <div className="image-overlay">
+            <div className="ripple-loader">
+              <div />
+              <div />
+            </div>
+          </div>
+        )}
+
+        {this.state.imageErrored && (
+          <div className="image-overlay">
+            <p className="image-error-text">
+              Unfortunately it looks like there was an error while finding and loading
+              this image!
+            </p>
+          </div>
+        )}
+
+        <img
+          src={this.props.photo.src.medium}
+          onLoad={() => this.handleImageLoaded()}
+          onError={this.handleImageErrored}
+        />
       </div>
     );
   }

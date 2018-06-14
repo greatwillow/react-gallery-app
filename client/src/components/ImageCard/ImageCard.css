@@ -26,34 +26,51 @@
   margin: 0px 0px -7px 0px;
 }
 
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+.image-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(250, 250, 250, 0.8);
+}
+
+.image-error-text {
+  padding: 20px;
+  font-size: 12px;
+  text-align: center;
+  font-family: 'Architects Daughter', sans-serif;
+}
+
+.ripple-loader {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.ripple-loader div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
+  animation: ripple-loader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
-
-@-webkit-keyframes spin {
+.ripple-loader div:nth-child(2) {
+  animation-delay: -0.8s;
+}
+@keyframes ripple-loader {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    top: 50px;
+    left: 50px;
+    width: 0;
+    height: 0;
+    opacity: 1;
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
   }
 }
