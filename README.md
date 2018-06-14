@@ -8,7 +8,7 @@ The app is constructed using a simple Express.JS server on the backend with a Re
 
 ## Live Version
 
-The app is currently hosted on Heroku and can be seen [here](https://floating-reef-92429.herokuapp.com/)
+The app is currently hosted on Heroku and can be seen [here](https://floating-reef-92429.herokuapp.com/). Note that if that site has not been actively engaged with for a period of over one hour, the initial load of the site will take longer since the site is considered dormant on Heroku's servers at that time.
 
 ## Installation and Usage
 
@@ -18,5 +18,3 @@ Here are some steps to get the app running locally.
 - `npm install`
 - `npm run dev`
 - Navigate to localhost:3000
-
-https://git.heroku.com/floating-reef-92429.git

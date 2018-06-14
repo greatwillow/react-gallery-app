@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders the header correctly renders correctly 1`] = `
+<div
+  className="header-container"
+>
+  <div
+    className="header-title"
+  >
+    Bella   
+    <span>
+      Galleria
+    </span>
+  </div>
+  <div
+    className="search-bar"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Search..."
+        type="search"
+        value="test"
+      />
+      <button
+        className="search-button"
+        label="submit"
+        type="submit"
+      >
+        <i
+          className="fa fa-search"
+        />
+      </button>
+    </form>
+  </div>
+</div>
+`;

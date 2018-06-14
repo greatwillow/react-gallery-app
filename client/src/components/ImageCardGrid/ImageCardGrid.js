@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 // FUNCTIONS
-import checkIfItemGoesInColumn from '../../utils/responsiveGrid/checkIfItemGoesInColumn';
+import { checkIfItemGoesInColumn } from '../../utils/responsiveGrid/checkIfItemGoesInColumn';
 // COMPONENTS
 import ImageCard from '../ImageCard/ImageCard';
 // STYLES
 import './ImageCardGrid.css';
 
-class ImageCardGrid extends Component {
-  renderColumn = column => {
+const ImageCardGrid = props => {
+  const renderColumn = column => {
     return (
       <div className="image-grid-column">
-        {this.props.photos.map((photo, index) => {
+        {props.photos.map((photo, index) => {
           let adjustedIndex = index + 1;
-          let goesInColumn = checkIfItemGoesInColumn(this, adjustedIndex, column);
+          let goesInColumn = checkIfItemGoesInColumn(props, adjustedIndex, column);
           if (goesInColumn) {
             return (
               <div key={index}>
-                <ImageCard key={photo.url} photo={photo} {...this.props} />
+                <ImageCard key={photo.url} photo={photo} {...props} />
               </div>
             );
           }
@@ -26,17 +26,14 @@ class ImageCardGrid extends Component {
     );
   };
 
-  render() {
-    const photos = this.props.photos;
-    return (
-      <div className="image-grid-row">
-        {this.renderColumn(1)}
-        {this.renderColumn(2)}
-        {this.renderColumn(3)}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="image-grid-row">
+      {renderColumn(1)}
+      {renderColumn(2)}
+      {renderColumn(3)}
+    </div>
+  );
+};
 
 ImageCardGrid.propTypes = {
   photos: PropTypes.array.isRequired

@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 // COMPONENTS
 import SearchBar from '../SearchBar/SearchBar';
 import HeaderTitle from '../HeaderTitle/HeaderTitle';
 
 import './Header.css';
 
-class Header extends Component {
-  render() {
-    return (
-      <div className="header-container">
-        <HeaderTitle {...this.props} />
-        <SearchBar {...this.props} />
-      </div>
-    );
-  }
-}
+const Header = props => {
+  return (
+    <div className="header-container">
+      <HeaderTitle {...props} />
+      <SearchBar {...props} />
+    </div>
+  );
+};
 
 export default Header;

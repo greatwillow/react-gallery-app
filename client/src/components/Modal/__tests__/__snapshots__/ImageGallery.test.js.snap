@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component renders the modal correctly renders correctly 1`] = `
+<div
+  className="screen-overlay"
+>
+  <div
+    className="modal"
+  >
+    <button
+      className="modal-close-button"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-close"
+      />
+    </button>
+    <img
+      alt={undefined}
+      src={null}
+      width="50%"
+    />
+    <p>
+      This photograph has been taken from
+       
+      <a
+        href="http://www.pexels.com"
+      >
+        www.pexels.com
+      </a>
+      .
+      <br />
+      The stated photographer is:  
+      <br />
+      Find out more by clicking 
+      <a
+        href={undefined}
+      >
+        here.
+      </a>
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Gallery component renders the header correctly renders correctly 1`] = `
+<div
+  className="empty-content-pane"
+>
+  <h2>
+    Welcome to Bella Galleria
+  </h2>
+  <p>
+     A searchable photo gallery sourced from www.pexels.com.
+  </p>
+  <h3>
+    Enjoy searching through a selection of beautiful photos!
+  </h3>
+</div>
+`;
