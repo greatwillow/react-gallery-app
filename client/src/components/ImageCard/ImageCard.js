@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// FUNCTIONS
-import { getImageDimensions } from '../../utils/responsiveGrid/getImageDimensions';
 // STYLES
 import './ImageCard.css';
 
@@ -15,16 +13,29 @@ class ImageCard extends Component {
     };
   }
 
+  adjustImageDimensions = () => {
+    let { width, height } = this.props.photo;
+    let adjustedWidth;
+    if (this.imageContainerRef && this.imageContainerRef.offsetWidth) {
+      adjustedWidth = this.imageContainerRef.offsetWidth;
+    }
+    const adjustedHeight = (height / width) * adjustedWidth;
+
+    this.setState({
+      imageHeight: adjustedHeight
+    });
+  };
+
   componentWillMount = () => {
-    window.addEventListener('resize', getImageDimensions(this));
+    window.addEventListener('resize', this.adjustImageDimensions);
   };
 
   componentWillUnmount = () => {
-    window.removeEventListener('resize', getImageDimensions(this));
+    window.removeEventListener('resize', this.adjustImageDimensions);
   };
 
   componentDidMount = () => {
-    getImageDimensions(this);
+    this.adjustImageDimensions();
   };
 
   handleImageLoaded() {
@@ -44,6 +55,7 @@ class ImageCard extends Component {
 
   render() {
     let { photo } = this.props;
+
     return (
       <div
         ref={elem => {
