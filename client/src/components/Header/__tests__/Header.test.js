@@ -1,22 +1,19 @@
 import React from 'react';
 import Header from '../Header';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 describe('Header component renders the header correctly', () => {
-  const handleSubmitSearchTerm = jest.fn();
-  const handleSearchTermChange = jest.fn();
-  const searchTerm = 'test';
-  const windowWidth = 800;
+  const props = {
+    handleSubmitSearchTerm: jest.fn(),
+    handleSearchTermChange: jest.fn(),
+    searchTerm: 'test',
+    windowWidth: 800
+  };
 
-  const rendered = renderer.create(
-    <Header
-      handleSubmitSearchTerm={handleSubmitSearchTerm}
-      handleSearchTermChange={handleSearchTermChange}
-      searchTerm={searchTerm}
-      windowWidth={windowWidth}
-    />
-  );
+  const header = shallow(<Header {...props} />);
+
   it('renders correctly', () => {
-    expect(rendered.toJSON()).toMatchSnapshot();
+    expect(header).toMatchSnapshot();
   });
 });

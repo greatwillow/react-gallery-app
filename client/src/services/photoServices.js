@@ -1,5 +1,5 @@
-const getPhotos = (scope, searchTerm) => {
-  fetch(`/api/photos?search-term=${searchTerm}`, {
+const getPhotos = (searchTerm, callBack) => {
+  return fetch(`/api/photos?search-term=${searchTerm}`, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
@@ -10,11 +10,11 @@ const getPhotos = (scope, searchTerm) => {
       return res.json();
     })
     .then(data => {
-      scope.setState({
+      callBack({
         photos: data.photos
       });
       if (data.total_results === 0) {
-        scope.setState({
+        callBack({
           errorMessage: {
             errorFound: true,
             message: 'Unfortunately there were no photos found for the given term.'
@@ -24,7 +24,7 @@ const getPhotos = (scope, searchTerm) => {
       }
     })
     .catch(err => {
-      scope.setState({
+      callBack({
         errorMessage: {
           errorFound: true,
           message: `It looks like the error is that: ${err.message}`

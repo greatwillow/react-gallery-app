@@ -1,17 +1,148 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image Gallery component renders the header correctly renders correctly 1`] = `
-<div
-  className="empty-content-pane"
->
-  <h2>
-    Welcome to Bella Galleria
-  </h2>
-  <p>
-     A searchable photo gallery sourced from www.pexels.com.
-  </p>
-  <h3>
-    Enjoy searching through a selection of beautiful photos!
-  </h3>
-</div>
+exports[`Image Gallery component renders correctly renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ImageGallery
+    errorMessage={
+        Object {
+            "errorFound": false,
+            "message": "test message",
+          }
+    }
+    handleProvidePhoto={[Function]}
+    handleShowModal={[Function]}
+    photos={null}
+    windowWidth={800}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2>
+          Welcome to Bella Galleria
+</h2>,
+        <p>
+           A searchable photo gallery sourced from www.pexels.com.
+</p>,
+        <h3>
+          Enjoy searching through a selection of beautiful photos!
+</h3>,
+      ],
+      "className": "empty-content-pane",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Welcome to Bella Galleria",
+        },
+        "ref": null,
+        "rendered": "Welcome to Bella Galleria",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": " A searchable photo gallery sourced from www.pexels.com.",
+        },
+        "ref": null,
+        "rendered": " A searchable photo gallery sourced from www.pexels.com.",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Enjoy searching through a selection of beautiful photos!",
+        },
+        "ref": null,
+        "rendered": "Enjoy searching through a selection of beautiful photos!",
+        "type": "h3",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2>
+            Welcome to Bella Galleria
+</h2>,
+          <p>
+             A searchable photo gallery sourced from www.pexels.com.
+</p>,
+          <h3>
+            Enjoy searching through a selection of beautiful photos!
+</h3>,
+        ],
+        "className": "empty-content-pane",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Welcome to Bella Galleria",
+          },
+          "ref": null,
+          "rendered": "Welcome to Bella Galleria",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " A searchable photo gallery sourced from www.pexels.com.",
+          },
+          "ref": null,
+          "rendered": " A searchable photo gallery sourced from www.pexels.com.",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Enjoy searching through a selection of beautiful photos!",
+          },
+          "ref": null,
+          "rendered": "Enjoy searching through a selection of beautiful photos!",
+          "type": "h3",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
 `;

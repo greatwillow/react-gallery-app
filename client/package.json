@@ -19,6 +19,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "fetch-mock": "^6.4.4",
     "react-test-renderer": "^16.4.1"
   }
 }

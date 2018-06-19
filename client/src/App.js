@@ -27,6 +27,10 @@ class App extends Component {
     };
   }
 
+  modifyStateAfterPhotoSearch = response => {
+    this.setState(response);
+  };
+
   handleSearchTermChange = event => {
     this.setState({
       searchTerm: event.target.value
@@ -35,14 +39,18 @@ class App extends Component {
 
   handleSubmitSearchTerm = event => {
     event.preventDefault();
-    getPhotos(this, this.state.searchTerm);
+    getPhotos(this.state.searchTerm, this.modifyStateAfterPhotoSearch);
     this.setState({
       searchTerm: ''
     });
   };
 
   handleShowModal = () => {
-    if (this.state.errorMessage.errorFound === true && this.state.modalOpen) {
+    if (
+      this.state.erroMessage &&
+      this.state.errorMessage.errorFound === true &&
+      this.state.modalOpen
+    ) {
       this.setState({
         errorMessage: {
           errorFound: false,
@@ -76,13 +84,14 @@ class App extends Component {
           handleProvidePhoto={this.handleProvidePhoto}
           {...this.props}
         />
-        {this.state.modalOpen && (
-          <Modal
-            handleShowModal={this.handleShowModal}
-            photo={this.state.currentPhoto}
-            errorMessage={this.state.errorMessage}
-          />
-        )}
+        {this.state.modalOpen &&
+          this.state.errorMessage && (
+            <Modal
+              handleShowModal={this.handleShowModal}
+              photo={this.state.currentPhoto}
+              errorMessage={this.state.errorMessage}
+            />
+          )}
       </div>
     );
   }

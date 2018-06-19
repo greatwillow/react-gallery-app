@@ -20,7 +20,7 @@ const ModalPhotoInset = ({ photo, photoSpecifiedWidth }) => {
 
 ModalPhotoInset.propTypes = {
   photo: PropTypes.object.isRequired,
-  photoSpecifiedWidth: PropTypes.func.isRequired
+  photoSpecifiedWidth: PropTypes.string.isRequired
 };
 
 export default ModalPhotoInset;
